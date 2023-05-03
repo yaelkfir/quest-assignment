@@ -1,0 +1,27 @@
+<table
+  *ngIf="flights"
+  mat-table
+  [dataSource]="flights"
+  class="mat-elevation-z0"
+>
+  <ng-container
+    *ngFor="let column of columns"
+    [matColumnDef]="column.columnDef"
+  >
+    <th mat-header-cell *matHeaderCellDef>
+      {{ column.header }}
+    </th>
+    <td mat-cell *matCellDef="let row">
+      {{ column.cell(row) }}
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+  <tr
+    mat-row
+    *matRowDef="let row; let i = index; columns: displayedColumns"
+    class="cursor-pointer"
+    [class.selected-row]="selectedflightIndex === i"
+    (click)="rowClick.emit(i)"
+  ></tr>
+</table>

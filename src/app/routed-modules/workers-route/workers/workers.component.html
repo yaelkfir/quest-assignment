@@ -1,0 +1,20 @@
+<section class="workers">
+  <mat-toolbar color="primary">
+    <h3 class="m-0">Workers</h3>
+  </mat-toolbar>
+  <app-workers-list
+    [workers]="workers$ | async"
+    [selectedWorker]="selectedWorker$ | async"
+    (selectedChange)="selectedWorkerChange($event)"
+  ></app-workers-list>
+</section>
+<section class="worker-flight-table">
+  <app-flight-table
+    [flights]="flights$ | async"
+    [selectedflightIndex]="selectedFlightIndex$ | async"
+    (rowClick)="setSelectedFlight($event)"
+  ></app-flight-table>
+</section>
+<section class="flight">
+  <app-flight-detail [flight]="flight$ | async"></app-flight-detail>
+</section>

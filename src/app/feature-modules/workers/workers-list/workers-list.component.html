@@ -1,0 +1,9 @@
+<mat-selection-list [multiple]="false" *ngIf="workers" (selectionChange)="selectionChange($event)">
+  <mat-list-option
+    *ngFor="let worker of workers"
+    [selected]="worker.id === selectedWorker"
+    [class.selected-row]="worker.id === selectedWorker"
+    [value]="worker.id">
+    {{ worker.name }}
+  </mat-list-option>
+</mat-selection-list>

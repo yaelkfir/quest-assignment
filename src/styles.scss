@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+* {
+    box-sizing: border-box;
+}
+
+.selected-row {
+   background: #e0e0e0 !important;
+   transition: all 0.2s;
+}
+.m-0 {
+    margin: 0 !important;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.mat-mdc-list-option .mdc-radio{
+    display: none !important;
+}

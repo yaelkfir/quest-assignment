@@ -1,0 +1,42 @@
+<mat-list *ngIf="flight">
+  <ng-container
+    [ngTemplateOutlet]="listItem"
+    [ngTemplateOutletContext]="{
+      name: 'Plane Number',
+      value: flight.plane
+    }"
+  ></ng-container>
+  <mat-divider></mat-divider>
+  <ng-container
+    [ngTemplateOutlet]="listItem"
+    [ngTemplateOutletContext]="{
+      name: 'Duration',
+      value: flight.duration | duration
+    }"
+  ></ng-container>
+  <mat-divider></mat-divider>
+  <ng-container
+    [ngTemplateOutlet]="listItem"
+    [ngTemplateOutletContext]="{
+      name: 'Origin Gate',
+      value: flight.from_gate
+    }"
+  ></ng-container>
+  <mat-divider></mat-divider>
+  <ng-container
+    [ngTemplateOutlet]="listItem"
+    [ngTemplateOutletContext]="{
+      name: 'Destination Gate',
+      value: flight.to_gate
+    }"
+  ></ng-container>
+</mat-list>
+
+<ng-template #listItem let-name="name" let-value="value">
+  <mat-list-item *ngIf="flight">
+    <p matListItemLine class="row m-0">
+      <span class="name">{{ name }}</span>
+      <span class="value">{{ value }}</span>
+    </p>
+  </mat-list-item>
+</ng-template>
